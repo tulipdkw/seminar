@@ -1,38 +1,95 @@
 ---
 layout: default
 title: 首页
+description: 科研小组的学术交流与论文分享记录
 ---
 
-<div class="hero-section">
-    <h1>欢迎来到科研小组分享记录</h1>
-    <p>记录我们的学术交流与论文分享</p>
-</div>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+        </div>
+    </div>
+</section>
 
-<section class="announcements">
-    <h2>📢 最新分享记录</h2>
-    <div class="presentation-list">
-        {% assign sorted_presentations = site.data.presentations | sort: 'date' | reverse %}
-        {% for presentation in sorted_presentations limit: 10 %}
-        <div class="presentation-card">
-            <div class="presentation-header">
-                <span class="date">{{ presentation.date | date: "%Y年%m月%d日" }}</span>
-                <span class="presenter">{{ presentation.presenter }}</span>
+<!-- 统计部分 -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">{{ site.data.presentations | size }}</span>
+                <span class="stat-label">篇论文分享</span>
             </div>
-            <h3 class="paper-title">{{ presentation.title }}</h3>
-            <p class="description">{{ presentation.description }}</p>
-            <div class="actions">
-                {% if presentation.arxiv %}
-                <a href="{{ presentation.arxiv }}" class="btn btn-arxiv" target="_blank">
-                    📄 arXiv链接
-                </a>
-                {% endif %}
-                {% if presentation.ppt %}
-                <a href="{{ presentation.ppt | relative_url }}" class="btn btn-ppt" target="_blank">
-                    📊 查看PPT
-                </a>
-                {% endif %}
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-label">位成员</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">个月运行</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">156</span>
+                <span class="stat-label">次下载</span>
             </div>
         </div>
-        {% endfor %}
+    </div>
+</section>
+
+<!-- 分享记录部分 -->
+<section class="presentations-section">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-bullhorn"></i>
+            最新分享记录
+        </h2>
+        
+        <div class="presentations-grid">
+            {% assign sorted_presentations = site.data.presentations | sort: 'date' | reverse %}
+            {% for presentation in sorted_presentations limit: 12 %}
+            <article class="presentation-card{% if forloop.first %} featured{% endif %}">
+                <div class="presentation-header">
+                    <div class="date-badge">
+                        {{ presentation.date | date: "%Y年%m月%d日" }}
+                    </div>
+                    <div class="presenter-info">
+                        <div class="presenter-avatar">
+                            {{ presentation.presenter | slice: 0 }}
+                        </div>
+                        <span>{{ presentation.presenter }}</span>
+                    </div>
+                </div>
+                
+                <h3 class="paper-title">{{ presentation.title }}</h3>
+                <p class="paper-description">{{ presentation.description }}</p>
+                
+                <div class="paper-actions">
+                    {% if presentation.arxiv %}
+                    <a href="{{ presentation.arxiv }}" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-file-alt"></i>
+                        arXiv 链接
+                    </a>
+                    {% endif %}
+                    
+                    {% if presentation.ppt %}
+                    <a href="{{ presentation.ppt | relative_url }}" class="btn btn-outline" target="_blank">
+                        <i class="fas fa-presentation"></i>
+                        查看 PPT
+                    </a>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        
+        {% if site.data.presentations.size > 12 %}
+        <div class="text-center" style="margin-top: 2rem;">
+            <a href="{{ '/all-presentations' | relative_url }}" class="btn btn-primary">
+                <i class="fas fa-arrow-right"></i>
+                查看全部分享
+            </a>
+        </div>
+        {% endif %}
     </div>
 </section>
