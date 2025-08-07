@@ -1,0 +1,21 @@
+# 网站基本信息
+title: "科研小组分享记录"
+description: "记录我们小组的论文分享和学术交流"
+baseurl: "/seminar"
+url: "https://tulipdkw.github.io"
+
+# Jekyll设置
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# 构建设置
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 集合设置
+collections:
+  presentations:
+    output: true
+    permalink: /:collection/:name/
