@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<div class="hero-section">
+  <div class="container">
+    <h1 class="hero-title">{{ site.title }}</h1>
+    <p class="hero-description">{{ site.description }}</p>
+  </div>
+</div>
+
+<div class="seminars-container">
+  <div class="container">
+    <!-- 下周seminar预告 -->
+    <section class="seminar-section">
+      <h2 class="section-title">
+        <i class="icon icon-calendar"></i>
+        下周Seminar预告
+      </h2>
+      <div class="seminars-grid">
+        {% for seminar in site.data.upcoming_seminars %}
+          {% include seminar_card.html seminar=seminar type="upcoming" %}
+        {% endfor %}
+      </div>
+      {% if site.data.upcoming_seminars.size == 0 %}
+        <div class="empty-state">
+          <p>暂无即将进行的Seminar</p>
+        </div>
+      {% endif %}
+    </section>
+
+    <!-- 往期seminar记录 -->
+    <section class="seminar-section">
+      <h2 class="section-title">
+        <i class="icon icon-archive"></i>
+        往期Seminar记录
+      </h2>
+      <div class="seminars-grid">
+        {% for seminar in site.data.past_seminars %}
+          {% include seminar_card.html seminar=seminar type="past" %}
+        {% endfor %}
+      </div>
+      {% if site.data.past_seminars.size == 0 %}
+        <div class="empty-state">
+          <p>暂无往期Seminar记录</p>
+        </div>
+      {% endif %}
+    </section>
+  </div>
+</div>
+
+{{ content }}

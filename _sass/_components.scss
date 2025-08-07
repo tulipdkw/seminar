@@ -1,0 +1,231 @@
+// Seminar卡片
+.seminar-card {
+  position: relative;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  // 背景图片
+  .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    // 渐变蒙版
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.75) 100%
+      );
+    }
+  }
+  
+  &:hover .card-background {
+    opacity: 0.3;
+  }
+  
+  .card-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-lg);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    
+    .seminar-date,
+    .seminar-presenter {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      
+      i {
+        width: 14px;
+        color: var(--primary-color);
+      }
+    }
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
+    }
+  }
+  
+  .card-body {
+    margin-bottom: var(--spacing-lg);
+    
+    .seminar-title {
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.4;
+    }
+    
+    .paper-title {
+      font-size: 1rem;
+      font-weight: var(--font-weight-medium);
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.4;
+      font-style: italic;
+    }
+    
+    .seminar-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+  }
+  
+  .card-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    align-items: center;
+    
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: var(--font-weight-medium);
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      
+      i {
+        width: 14px;
+      }
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+      
+      &.arxiv-btn {
+        background-color: #b91c1c;
+        color: white;
+        
+        &:hover {
+          background-color: #991b1b;
+        }
+      }
+      
+      &.ppt-btn {
+        background-color: var(--secondary-color);
+        color: white;
+        
+        &:hover {
+          background-color: #6d8471;
+        }
+      }
+    }
+    
+    .upcoming-badge {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-sm);
+      
+      i {
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+  
+  // 即将进行的卡片样式
+  &.upcoming {
+    border-color: var(--primary-color);
+    background: var(--gradient-card);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-primary);
+      z-index: 3;
+    }
+  }
+}
+
+// 图标样式
+.icon {
+  &.icon-calendar::before {
+    content: '\f073';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+  }
+  
+  &.icon-archive::before {
+    content: '\f187';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+  }
+}
+
+// 动画
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// 平滑滚动
+html {
+  scroll-behavior: smooth;
+}
+
+// 选择文本样式
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary-color);
+  color: white;
+}

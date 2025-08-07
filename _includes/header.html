@@ -1,23 +1,17 @@
-<header class="header">
-    <div class="container">
-        <nav class="navbar">
-            <a href="{{ '/' | relative_url }}" class="logo">
-                <i class="fas fa-microscope"></i>
-                {{ site.title }}
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="{{ '/' | relative_url }}">首页</a></li>
-                <li><a href="{{ '/research' | relative_url }}">研究</a></li>
-                <li><a href="{{ '/team' | relative_url }}">团队</a></li>
-                <li><a href="{{ '/contact' | relative_url }}">联系我们</a></li>
-            </ul>
-            
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </div>
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="{{ '/' | relative_url }}" class="brand-link">
+          {{ site.title }}
+        </a>
+      </div>
+      
+      <div class="nav-menu">
+        <a href="{{ '/' | relative_url }}" class="nav-link">首页</a>
+        <a href="#upcoming" class="nav-link">即将进行</a>
+        <a href="#past" class="nav-link">往期记录</a>
+      </div>
+    </nav>
+  </div>
 </header>

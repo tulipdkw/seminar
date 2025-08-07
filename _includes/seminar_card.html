@@ -1,0 +1,57 @@
+<div class="seminar-card {{ include.type }}" data-seminar-id="{{ include.seminar.id }}">
+  <!-- 背景图片 -->
+  {% if include.seminar.background_image %}
+    <div class="card-background" 
+         style="background-image: url('{{ include.seminar.background_image | relative_url }}');">
+    </div>
+  {% endif %}
+  
+  <div class="card-content">
+    <div class="card-header">
+      <div class="seminar-date">
+        <i class="fas fa-calendar-alt"></i>
+        {{ include.seminar.date | date: "%Y年%m月%d日" }}
+      </div>
+      <div class="seminar-presenter">
+        <i class="fas fa-user"></i>
+        {{ include.seminar.presenter }}
+      </div>
+    </div>
+    
+    <div class="card-body">
+      <h3 class="seminar-title">{{ include.seminar.title }}</h3>
+      <h4 class="paper-title">{{ include.seminar.paper_title }}</h4>
+      {% if include.seminar.description %}
+        <p class="seminar-description">{{ include.seminar.description }}</p>
+      {% endif %}
+    </div>
+    
+    <div class="card-actions">
+      {% if include.seminar.arxiv_url %}
+        <a href="{{ include.seminar.arxiv_url }}" 
+           class="action-btn arxiv-btn" 
+           target="_blank" 
+           rel="noopener noreferrer">
+          <i class="fas fa-file-pdf"></i>
+          arXiv论文
+        </a>
+      {% endif %}
+      
+      {% if include.seminar.ppt_url %}
+        <a href="{{ include.seminar.ppt_url | relative_url }}" 
+           class="action-btn ppt-btn" 
+           target="_blank">
+          <i class="fas fa-presentation"></i>
+          演示文稿
+        </a>
+      {% endif %}
+      
+      {% if include.type == "upcoming" %}
+        <div class="upcoming-badge">
+          <i class="fas fa-clock"></i>
+          即将进行
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

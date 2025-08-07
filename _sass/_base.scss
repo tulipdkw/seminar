@@ -1,0 +1,79 @@
+// 基础变量
+:root {
+  // 颜色系统 - 降低饱和度
+  --primary-color: #4a90a4;          // 柔和的蓝色
+  --secondary-color: #7c9885;        // 柔和的绿色  
+  --accent-color: #b08d7a;           // 柔和的棕色
+  --text-primary: #2c3e50;           // 深灰蓝色
+  --text-secondary: #5a6c7d;         // 中灰蓝色
+  --text-muted: #8b9dc3;             // 浅灰蓝色
+  --background: #fafbfc;             // 极浅灰色背景
+  --surface: #ffffff;                // 白色表面
+  --border: #e1e8ed;                 // 浅边框色
+  --shadow: rgba(0, 0, 0, 0.1);      // 柔和阴影
+  
+  // 渐变
+  --gradient-primary: linear-gradient(135deg, #4a90a4, #7c9885);
+  --gradient-card: linear-gradient(135deg, rgba(74, 144, 164, 0.03), rgba(124, 152, 133, 0.03));
+  
+  // 间距
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  // 边框圆角
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  
+  // 字体
+  --font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  // 阴影
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+// 基础重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 容器
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+// 响应式断点
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
