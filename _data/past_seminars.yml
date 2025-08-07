@@ -1,7 +1,7 @@
 - id: "past_002"
   date: "2025-08-07"
   presenter: "王爱博"
-  title: "LLM中新出现的“错位”(emergent misalignment)现象"
+  title: "LLM中的新型“错位”现象"
   paper_title: "Persona Features Control Emergent Misalignment"
   arxiv_url: "https://arxiv.org/abs/2506.19823"
   ppt_url: "/assets/files/gnn_recommender_wang.pdf" 
