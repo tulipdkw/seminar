@@ -24,7 +24,7 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
     
     // 渐变蒙版
     &::after {
@@ -44,7 +44,7 @@
   }
   
   &:hover .card-background {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   
   .card-content {
