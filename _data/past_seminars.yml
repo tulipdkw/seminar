@@ -1,4 +1,4 @@
-- id: "past_002"
+- id: "past_003"
   date: "2025-08-07"
   presenter: "王爱博"
   title: "LLM中的新型“错位”现象"
@@ -7,6 +7,16 @@
   ppt_url: "/assets/files/gnn_recommender_wang.pdf" 
   background_image: "/assets/images/seminars/emergentmisalignment.jpg"
   description: "LLM训练中的Misalignment、如何使用SAE进行Detection"
+
+- id: "past_002"
+  date: "2025-07-31"
+  presenter: "苑思明"
+  title: ""
+  paper_title: ""
+  arxiv_url: ""
+  ppt_url: "/assets/files/ppo_zhao.pdf"
+  background_image: ""
+  description: ""
 
 - id: "past_001"
   date: "2025-07-31"
