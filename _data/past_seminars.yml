@@ -4,8 +4,8 @@
   title: "大模型的“浅层对齐”"
   paper_title: "Safety Alignment Should Be Made More Than Just a Few Tokens Deep"
   arxiv_url: "https://arxiv.org/abs/2406.05946"
-  ppt_url: "/assets/images/seminars/dkw_1.jpg"
-  background_image: ""
+  ppt_url: ""
+  background_image: "/assets/images/seminars/dkw_1.jpg"
   description: ""
 
 - id: "past_006" 
@@ -14,8 +14,8 @@
   title: "用LLM对Agent进行安全性评估"
   paper_title: "AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents"
   arxiv_url: "https://arxiv.org/abs/2506.00641"
-  ppt_url: "/assets/images/seminars/shr_1.jpg"
-  background_image: ""
+  ppt_url: ""
+  background_image: "/assets/images/seminars/shr_1.jpg"
   description: ""
 
 - id: "past_005"
